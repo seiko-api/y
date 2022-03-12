@@ -553,13 +553,13 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
             case 'sewa': case 'sewabot': {
-                m.reply('Jika kamu ingin memasukkan Bot ke dalam Grup, kamu cukup membayar Rp10.000 untuk 1 Minggu, Rp15.000 untuk 1 Bulan. Untuk Sewa tidak ada yang Permanent. Jika berminat silahkan chat Owner Bot, ketik .owner\nPembayaran bisa melalui Gopay/Pulsa/Shoopepay/Ovo')
+                m.reply(`Jika kamu ingin memasukkan Bot ke dalam Grup, kamu cukup membayar Rp10.000 untuk 1 Minggu, Rp15.000 untuk 1 Bulan. Untuk Sewa tidak ada yang Permanent. Jika berminat silahkan chat Owner Bot, ketik .owner\nPembayaran bisa melalui Gopay/Pulsa/Shoopepay/Ovo`)
             }
             break
             case 'groupnino': case 'ninogroup': {
-                m.reply('Jangan lupa join grup Nakano Nino untuk mengetahui informasi lebih lanjut tentang bot\n
+                m.reply(`Jangan lupa join grup Nakano Nino untuk mengetahui informasi lebih lanjut tentang bot\n
 Group 1 : https://chat.whatsapp.com/CgDjbfno5UZB4pcygqmdxB\n
-Jangan lupa juga untuk Donasi supaya admin semakin semangat dalam mengembangkan bot ini, terimakasih')
+Jangan lupa juga untuk Donasi supaya admin semakin semangat dalam mengembangkan bot ini, terimakasih`)
             }
             break
             case 'chat': {
