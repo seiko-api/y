@@ -1553,7 +1553,7 @@ break
             }
             break
         case 'waifu': case 'neko': {
-            let anu = await fetchJson ('https://api.waifu.pics/sfw/'+command')
+            let anu = await fetchJson (`https://api.waifu.pics/sfw/'${command}`)
             let buttons = [
                     {buttonId: `${command}`, buttonText: {displayText: 'Next Photo'}, type: 1}
                 ]
