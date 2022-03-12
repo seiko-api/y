@@ -1552,19 +1552,9 @@ break
                 hisoka.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })
             }
             break
-        case 'waifu': case 'neko': {
-            let anu = await fetchJson (`https://api.waifu.pics/sfw/'${command}`)
-            let buttons = [
-                    {buttonId: `${command}`, buttonText: {displayText: 'Next Photo'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: anu.url },
-                    caption: `Random ${command}`,
-                    footer: `Pencet tombol dibawah untuk foto selanjutnya`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
+        case 'waifu': case 'neko': case 'husbu': case 'shinobu': case 'megumin': {
+            m.reply(mess.wait)
+                hisoka.sendMessage(m.chat, { image: { url: (`https://api.lolhuman.xyz/api/random/${command}?apikey=RIFQIBOTZ`) }, caption: 'Random ${command}' }, { quoted: m })
             }
             break
 	    case 'couple': {
