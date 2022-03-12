@@ -2529,7 +2529,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*── 「 Nakano Nino Bot 」 ──*\nHi, ${pushnane}\n
+                anu = `*── 「 Nakano Nino Bot 」 ──*\nHi, ${pushname}\n
 Library : *Baileys-MD*
 Prefix : ( ${prefix} )
 Waktu Server : ${moment(waktu * 1000).format('DD/MM/YY HH:mm:ss')}
