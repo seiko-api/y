@@ -1547,14 +1547,9 @@ break
                hisoka.sendMessage(m.chat, { image: { url: result }, caption: `Hasil pencarian dari ${text}\n\nPhoto Source : ${result}` }, { quoted: m })
                      }
             break
-            case 'anime': case 'f': case 'husbu': case 'd': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
-                m.reply(mess.wait)
-                hisoka.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })
-            }
-            break
-        case 'waifu': case 'neko': case 'husbu': case 'shinobu': case 'megumin': {
+        case 'waifu': case 'neko': case 'husbu': case 'shinobu': case 'megumin': case 'loli': {
             m.reply(mess.wait)
-                hisoka.sendMessage(m.chat, { image: { url: (`https://api.lolhuman.xyz/api/random/${command}?apikey=RIFQIBOTZ`) }, caption: 'Random ${command}' }, { quoted: m })
+                hisoka.sendMessage(m.chat, { image: { url: (`https://api.lolhuman.xyz/api/random/${command}?apikey=RIFQIBOTZ`) }, caption: `Random ${command}` }, { quoted: m })
             }
             break
 	    case 'couple': {
