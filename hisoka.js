@@ -1544,18 +1544,7 @@ break
 		let { pinterest } = require('./lib/scraper')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-            let btn = [{
-                                urlButton: {
-                                    displayText: 'Photo Source',
-                                    url: `${result}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Next Photo',
-                                    id: `pinterest ${text}`
-                                }
-                            }]
-                        hisoka.send5ButImg(m.chat, ` Hasil pencarian dari ${text}`, `Pencet tombol dibawah untuk foto selanjutnya`, result, btn)
+               hisoka.sendMessage(m.chat, { image: { url: result }, caption: `Hasil pencarian dari ${text}\n\nPhoto Source : ${result}` }, { quoted: m })
                      }
             break
             case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
