@@ -1544,8 +1544,19 @@ break
 		let { pinterest } = require('./lib/scraper')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-                hisoka.sendMessage(m.chat, { image: { url: result }, caption: '≻ Media Url : '+result }, { quoted: m })
-            }
+            let btn = [{
+                                urlButton: {
+                                    displayText: 'Photo Source',
+                                    url: `${result}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Next Photo',
+                                    id: `pinterest ${text}`
+                                }
+                            }]
+                        hisoka.send5ButImg(m.chat, ` Hasil pencarian dari ${text}`, `Pencet tombol dibawah untuk foto selanjutnya`, result, btn)
+                     }
             break
             case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
                 m.reply(mess.wait)
@@ -2004,8 +2015,8 @@ break
                 m.reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
                 let buttons = [
-                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
-                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '► With Watermark'}, type: 1}
+                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: 'Without Watermark'}, type: 1},
+                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: 'With Watermark Watermark'}, type: 1}
                 ]
                 let buttonMessage = {
                     text: `Download From ${text}`,
