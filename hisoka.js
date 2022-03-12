@@ -1547,9 +1547,24 @@ break
                hisoka.sendMessage(m.chat, { image: { url: result }, caption: `Hasil pencarian dari ${text}\n\nPhoto Source : ${result}` }, { quoted: m })
                      }
             break
-            case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
+            case 'anime': case 'f': case 'husbu': case 'd': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
                 m.reply(mess.wait)
                 hisoka.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })
+            }
+            break
+        case 'waifu': case 'neko': {
+            let anu = await fetchJson ('https://api.waifu.pics/sfw/'+command')
+            let buttons = [
+                    {buttonId: `${command}`, buttonText: {displayText: 'Next Photo'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: anu.url },
+                    caption: `Random ${command}`,
+                    footer: `Pencet tombol dibawah untuk foto selanjutnya`,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
 	    case 'couple': {
