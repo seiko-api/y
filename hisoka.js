@@ -1978,7 +1978,7 @@ break
                 m.reply(mess.wait)
                 
                 let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
-                hisoka.sendMessage(m.chat, { video: { url: anu.result.watermark } }, { quoted: m })
+                hisoka.sendMessage(m.chat, { video: { url: anu.result.nowatermark } }, { quoted: m })
             }
             break
             case 'tiktokwm': case 'tiktok': {
