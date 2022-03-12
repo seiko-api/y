@@ -548,12 +548,18 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             }
             break
-	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
-                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74fd634010128be37972c.jpg' }, caption: `*Hai Kak ${m.pushName}*\n\n Bot Rental Prices\n⭔ 13k Per Group via E-Walet 1 Month\n⭔ 18k via pulsa 1 Month\n\n Premium Price Bot\n⭔ 8k per User 1 bulan\n\nPayment can be via Paypal/link aja/pulsa\n\nFor more details, you can chat with the owner\nhttps://wa.me/6288292024190 (Owner)\n\nDonate For Me : \n\n⭔ Paypal : https://www.paypal.me/Cakhaho\n⭔ Saweria : https://saweria.co/DikaArdnt` }, { quoted: m })
+	    case 'donasi': case 'g': case 'f': case 'buypremium': case 'donate': {
+                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/4a277a5eb76602b5d47d4.jpg' }, caption: `──「 MENU DONATE 」──\n\nHi ${pushname} 👋🏻\n\`\`\`PULSA : 081381455128 (Telkomsel)\`\`\`\n\`\`\`PULSA : 085861870154 (Indosat)\`\`\`\nTerimakasih untuk kamu yang sudah donasi untuk perkembangan bot ini _^\n──「 THX FOR YOU ! 」──` }, { quoted: m })
             }
             break
-            case 'sc': {
-                m.reply('Script : https://github.com/DikaArdnt/Hisoka-Morou\n\n Dont Forget Give Star\n\nDonate : 6281615075793 (Link Aja)\nSaweria : https://saweria.co/DikaArdnt\nPaypal : https://www.paypal.me/Cakhaho\n\n Dont Forget Donate')
+            case 'sewa': case 'sewabot': {
+                m.reply('Jika kamu ingin memasukkan Bot ke dalam Grup, kamu cukup membayar Rp10.000 untuk 1 Minggu, Rp15.000 untuk 1 Bulan. Untuk Sewa tidak ada yang Permanent. Jika berminat silahkan chat Owner Bot, ketik .owner\nPembayaran bisa melalui Gopay/Pulsa/Shoopepay/Ovo')
+            }
+            break
+            case 'groupnino': case 'ninogroup': {
+                m.reply('Jangan lupa join grup Nakano Nino untuk mengetahui informasi lebih lanjut tentang bot\n
+Group 1 : https://chat.whatsapp.com/CgDjbfno5UZB4pcygqmdxB\n
+Jangan lupa juga untuk Donasi supaya admin semakin semangat dalam mengembangkan bot ini, terimakasih')
             }
             break
             case 'chat': {
@@ -2523,326 +2529,213 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `┌──⭓ *Group Menu*
-│
-│⭔ ${prefix}linkgroup
-│⭔ ${prefix}ephemeral [option]
-│⭔ ${prefix}setppgc [image]
-│⭔ ${prefix}setname [text]
-│⭔ ${prefix}setdesc [text]
-│⭔ ${prefix}group [option]
-│⭔ ${prefix}editinfo [option]
-│⭔ ${prefix}add @user
-│⭔ ${prefix}kick @user
-│⭔ ${prefix}hidetag [text]
-│⭔ ${prefix}tagall [text]
-│⭔ ${prefix}antilink [on/off]
-│⭔ ${prefix}mute [on/off]
-│⭔ ${prefix}promote @user
-│⭔ ${prefix}demote @user
-│⭔ ${prefix}vote [text]
-│⭔ ${prefix}devote
-│⭔ ${prefix}upvote
-│⭔ ${prefix}cekvote
-│⭔ ${prefix}hapusvote
-│
-└───────⭓
+                anu = `*── 「 Nakano Nino Bot 」 ──*\nHi, ${pushnane}\n
+Library : *Baileys-MD*
+Prefix : ( ${prefix} )
+Waktu Server : ${moment(waktu * 1000).format('DD/MM/YY HH:mm:ss')}
 
-┌──⭓ *Downloader Menu*
-│
-│⭔ ${prefix}tiktoknowm [url]
-│⭔ ${prefix}tiktokwm [url]
-│⭔ ${prefix}tiktokmp3 [url]
-│⭔ ${prefix}instagram [url]
-│⭔ ${prefix}twitter [url]
-│⭔ ${prefix}twittermp3 [url]
-│⭔ ${prefix}facebook [url]
-│⭔ ${prefix}pinterestdl [url]
-│⭔ ${prefix}ytmp3 [url]
-│⭔ ${prefix}ytmp4 [url]
-│⭔ ${prefix}getmusic [query]
-│⭔ ${prefix}getvideo [query]
-│⭔ ${prefix}umma [url]
-│⭔ ${prefix}joox [query]
-│⭔ ${prefix}soundcloud [url]
-│
-└───────⭓
+Name : ${pushname}
+Status : Free
+Bio : -
+Premium : No
 
-┌──⭓ *Search Menu*
-│
-│⭔ ${prefix}play [query]
-│⭔ ${prefix}yts [query]
-│⭔ ${prefix}google [query]
-│⭔ ${prefix}gimage [query]
-│⭔ ${prefix}pinterest [query]
-│⭔ ${prefix}wallpaper [query]
-│⭔ ${prefix}wikimedia [query]
-│⭔ ${prefix}ytsearch [query]
-│⭔ ${prefix}ringtone [query]
-│⭔ ${prefix}stalk [option] [query]
-│
-└───────⭓
+*MAIN MENU*
+≻ ${prefix}menu
+≻ ${prefix}groupnino
+≻ ${prefix}owner
+≻ ${prefix}donasi
+≻ ${prefix}ping
+≻ ${prefix}runtime
+≻ ${prefix}sewabot
 
-┌──⭓ *Random Menu*
-│
-│⭔ ${prefix}coffe
-│⭔ ${prefix}quotesanime
-│⭔ ${prefix}motivasi
-│⭔ ${prefix}dilanquote
-│⭔ ${prefix}bucinquote
-│⭔ ${prefix}katasenja
-│⭔ ${prefix}puisi
-│⭔ ${prefix}couple
-│⭔ ${prefix}anime
-│⭔ ${prefix}waifu
-│⭔ ${prefix}husbu
-│⭔ ${prefix}neko
-│⭔ ${prefix}shinobu
-│⭔ ${prefix}waifus (nsfw)
-│⭔ ${prefix}nekos (nsfw)
-│⭔ ${prefix}trap (nsfw)
-│⭔ ${prefix}blowjob (nsfw)
-│
-└───────⭓
+*CONVERTER/TOOLS*
+≻ ${prefix}toimage
+≻ ${prefix}removebg
+≻ ${prefix}sticker
+≻ ${prefix}emojimix
+≻ ${prefix}tovideo
+≻ ${prefix}togif
+≻ ${prefix}tourl
+≻ ${prefix}tovn
+≻ ${prefix}tomp3
+≻ ${prefix}toaudio
+≻ ${prefix}ebinary
+≻ ${prefix}dbinary
+≻ ${prefix}styletext
 
-┌──⭓ *Text Pro Menu*
-│
-│⭔ ${prefix}3dchristmas
-│⭔ ${prefix}3ddeepsea
-│⭔ ${prefix}americanflag
-│⭔ ${prefix}3dscifi
-│⭔ ${prefix}3drainbow
-│⭔ ${prefix}3dwaterpipe
-│⭔ ${prefix}halloweenskeleton
-│⭔ ${prefix}sketch
-│⭔ ${prefix}bluecircuit
-│⭔ ${prefix}space
-│⭔ ${prefix}metallic
-│⭔ ${prefix}fiction
-│⭔ ${prefix}greenhorror
-│⭔ ${prefix}transformer
-│⭔ ${prefix}berry
-│⭔ ${prefix}thunder
-│⭔ ${prefix}magma
-│⭔ ${prefix}3dcrackedstone
-│⭔ ${prefix}3dneonlight
-│⭔ ${prefix}impressiveglitch
-│⭔ ${prefix}naturalleaves
-│⭔ ${prefix}fireworksparkle
-│⭔ ${prefix}matrix
-│⭔ ${prefix}dropwater
-│⭔ ${prefix}harrypotter
-│⭔ ${prefix}foggywindow
-│⭔ ${prefix}neondevils
-│⭔ ${prefix}christmasholiday
-│⭔ ${prefix}3dgradient
-│⭔ ${prefix}blackpink
-│⭔ ${prefix}gluetext
-│
-└───────⭓
+*ANONYMOUS MENU*
+≻ ${prefix}anonymous
+≻ ${prefix}start
+≻ ${prefix}next
+≻ ${prefix}keluar
+≻ ${prefix}sendkontak
 
-┌──⭓ *Photo Oxy Menu*
-│
-│⭔ ${prefix}shadow
-│⭔ ${prefix}romantic
-│⭔ ${prefix}smoke
-│⭔ ${prefix}burnpapper
-│⭔ ${prefix}naruto
-│⭔ ${prefix}lovemsg
-│⭔ ${prefix}grassmsg
-│⭔ ${prefix}lovetext
-│⭔ ${prefix}coffecup
-│⭔ ${prefix}butterfly
-│⭔ ${prefix}harrypotter
-│⭔ ${prefix}retrolol
-│
-└───────⭓
+*DOWNLOADER*
+≻ ${prefix}tiktoknowm [url]
+≻ ${prefix}tiktokwm [url]
+≻ ${prefix}tiktokmp3 [url]
+≻ ${prefix}instagram [url]
+≻ ${prefix}twitter [url]
+≻ ${prefix}twittermp3 [url]
+≻ ${prefix}facebook [url]
+≻ ${prefix}pinterestdl [url]
+≻ ${prefix}ytmp3 [url]
+≻ ${prefix}ytmp4 [url]
+≻ ${prefix}getmusic [query]
+≻ ${prefix}getvideo [query]
+≻ ${prefix}umma [url]
+≻ ${prefix}joox [query]
+≻ ${prefix}soundcloud [url]
 
-┌──⭓ *Ephoto Menu*
-│
-│⭔ ${prefix}ffcover
-│⭔ ${prefix}crossfire
-│⭔ ${prefix}galaxy
-│⭔ ${prefix}glass
-│⭔ ${prefix}neon
-│⭔ ${prefix}beach
-│⭔ ${prefix}blackpink
-│⭔ ${prefix}igcertificate
-│⭔ ${prefix}ytcertificate
-│
-└───────⭓
+*RANDOM MENU*
+≻ ${prefix}coffe
+≻ ${prefix}quotesanime
+≻ ${prefix}motivasi
+≻ ${prefix}dilanquote
+≻ ${prefix}bucinquote
+≻ ${prefix}katasenja
+≻ ${prefix}puisi
+≻ ${prefix}couple
+≻ ${prefix}anime
+≻ ${prefix}waifu
+≻ ${prefix}husbu
+≻ ${prefix}neko
+≻ ${prefix}shinobu
+≻ ${prefix}waifus (nsfw)
+≻ ${prefix}nekos (nsfw)
+≻ ${prefix}trap (nsfw)
+≻ ${prefix}blowjob (nsfw)
 
-┌──⭓ *Fun Menu*
-│
-│⭔ ${prefix}halah
-│⭔ ${prefix}hilih
-│⭔ ${prefix}huluh
-│⭔ ${prefix}heleh
-│⭔ ${prefix}holoh
-│⭔ ${prefix}jadian
-│⭔ ${prefix}jodohku
-│⭔ ${prefix}delttt
-│⭔ ${prefix}tictactoe
-│⭔ ${prefix}family100
-│⭔ ${prefix}tebak [option]
-│⭔ ${prefix}math [mode]
-│⭔ ${prefix}suitpvp [@tag]
-│
-└───────⭓
+*SEARCH MENU*
+≻ ${prefix}play [query]
+≻ ${prefix}yts [query]
+≻ ${prefix}google [query]
+≻ ${prefix}gimage [query]
+≻ ${prefix}pinterest [query]
+≻ ${prefix}wallpaper [query]
+≻ ${prefix}wikimedia [query]
+≻ ${prefix}ytsearch [query]
+≻ ${prefix}ringtone [query]
+≻ ${prefix}stalk [option] [query]
 
-┌──⭓ *Primbon Menu*
-│
-│⭔ ${prefix}nomorhoki
-│⭔ ${prefix}artimimpi
-│⭔ ${prefix}artinama
-│⭔ ${prefix}ramaljodoh
-│⭔ ${prefix}ramaljodohbali
-│⭔ ${prefix}suamiistri
-│⭔ ${prefix}ramalcinta
-│⭔ ${prefix}cocoknama
-│⭔ ${prefix}pasangan
-│⭔ ${prefix}jadiannikah
-│⭔ ${prefix}sifatusaha
-│⭔ ${prefix}rezeki
-│⭔ ${prefix}pekerjaan
-│⭔ ${prefix}nasib
-│⭔ ${prefix}penyakit
-│⭔ ${prefix}tarot
-│⭔ ${prefix}fengshui
-│⭔ ${prefix}haribaik
-│⭔ ${prefix}harisangar
-│⭔ ${prefix}harisial
-│⭔ ${prefix}nagahari
-│⭔ ${prefix}arahrezeki
-│⭔ ${prefix}peruntungan
-│⭔ ${prefix}weton
-│⭔ ${prefix}karakter
-│⭔ ${prefix}keberuntungan
-│⭔ ${prefix}memancing
-│⭔ ${prefix}masasubur
-│⭔ ${prefix}zodiak
-│⭔ ${prefix}shio
-│
-└───────⭓
+*GAME & FUN MENU*
+≻ ${prefix}halah
+≻ ${prefix}hilih
+≻ ${prefix}huluh
+≻ ${prefix}heleh
+≻ ${prefix}holoh
+≻ ${prefix}jadian
+≻ ${prefix}jodohku
+≻ ${prefix}delttt
+≻ ${prefix}tictactoe
+≻ ${prefix}family100
+≻ ${prefix}tebak [option]
+≻ ${prefix}math [mode]
+≻ ${prefix}suitpvp [@tag]
 
-┌──⭓ *Convert Menu*
-│
-│⭔ ${prefix}toimage
-│⭔ ${prefix}removebg
-│⭔ ${prefix}sticker
-│⭔ ${prefix}emojimix
-│⭔ ${prefix}tovideo
-│⭔ ${prefix}togif
-│⭔ ${prefix}tourl
-│⭔ ${prefix}tovn
-│⭔ ${prefix}tomp3
-│⭔ ${prefix}toaudio
-│⭔ ${prefix}ebinary
-│⭔ ${prefix}dbinary
-│⭔ ${prefix}styletext
-│
-└───────⭓
+*GROUP MENU*
+≻ ${prefix}linkgroup
+≻ ${prefix}ephemeral [option]
+≻ ${prefix}setppgc [image]
+≻ ${prefix}setname [text]
+≻ ${prefix}setdesc [text]
+≻ ${prefix}group [option]
+≻ ${prefix}editinfo [option]
+≻ ${prefix}add @user
+≻ ${prefix}kick @user
+≻ ${prefix}hidetag [text]
+≻ ${prefix}tagall [text]
+≻ ${prefix}antilink [on/off]
+≻ ${prefix}mute [on/off]
+≻ ${prefix}promote @user
+≻ ${prefix}demote @user
+≻ ${prefix}vote [text]
+≻ ${prefix}devote
+≻ ${prefix}upvote
+≻ ${prefix}cekvote
+≻ ${prefix}hapusvote
 
-┌──⭓ *Main Menu*
-│
-│⭔ ${prefix}ping
-│⭔ ${prefix}owner
-│⭔ ${prefix}menu / ${prefix}help / ${prefix}?
-│⭔ ${prefix}delete
-│⭔ ${prefix}infochat
-│⭔ ${prefix}quoted
-│⭔ ${prefix}listpc
-│⭔ ${prefix}listgc
-│⭔ ${prefix}listonline
-│
-└───────⭓
+*PRIMBON MENU*
+≻ ${prefix}nomorhoki
+≻ ${prefix}artimimpi
+≻ ${prefix}artinama
+≻ ${prefix}ramaljodoh
+≻ ${prefix}ramaljodohbali
+≻ ${prefix}suamiistri
+≻ ${prefix}ramalcinta
+≻ ${prefix}cocoknama
+≻ ${prefix}pasangan
+≻ ${prefix}jadiannikah
+≻ ${prefix}sifatusaha
+≻ ${prefix}rezeki
+≻ ${prefix}pekerjaan
+≻ ${prefix}nasib
+≻ ${prefix}penyakit
 
-┌──⭓ *Database Menu*
-│
-│⭔ ${prefix}setcmd
-│⭔ ${prefix}listcmd
-│⭔ ${prefix}delcmd
-│⭔ ${prefix}lockcmd
-│⭔ ${prefix}addmsg
-│⭔ ${prefix}listmsg
-│⭔ ${prefix}getmsg
-│⭔ ${prefix}delmsg
-│
-└───────⭓
+*BAILEYS MD*
+≻ ${prefix}setcmd
+≻ ${prefix}listcmd
+≻ ${prefix}delcmd
+≻ ${prefix}lockcmd
+≻ ${prefix}addmsg
+≻ ${prefix}listmsg
+≻ ${prefix}getmsg
+≻ ${prefix}delmsg
 
-┌──⭓ *Anonymous Menu*
-│
-│⭔ ${prefix}anonymous
-│⭔ ${prefix}start
-│⭔ ${prefix}next
-│⭔ ${prefix}keluar
-│⭔ ${prefix}sendkontak
-│
-└───────⭓
+*RELIGION MENU*
+≻ ${prefix}iqra
+≻ ${prefix}hadist
+≻ ${prefix}alquran
+≻ ${prefix}juzamma
+≻ ${prefix}tafsirsurah
 
-┌──⭓ *Islamic Menu*
-│
-│⭔ ${prefix}iqra
-│⭔ ${prefix}hadist
-│⭔ ${prefix}alquran
-│⭔ ${prefix}juzamma
-│⭔ ${prefix}tafsirsurah
-│
-└───────⭓
+*VOICE CHANGER*
+≻ ${prefix}bass
+≻ ${prefix}blown
+≻ ${prefix}deep
+≻ ${prefix}earrape
+≻ ${prefix}fast
+≻ ${prefix}fat
+≻ ${prefix}nightcore
+≻ ${prefix}reverse
+≻ ${prefix}robot
+≻ ${prefix}slow
+≻ ${prefix}tupai
 
-┌──⭓ *Voice Changer*
-│
-│⭔ ${prefix}bass
-│⭔ ${prefix}blown
-│⭔ ${prefix}deep
-│⭔ ${prefix}earrape
-│⭔ ${prefix}fast
-│⭔ ${prefix}fat
-│⭔ ${prefix}nightcore
-│⭔ ${prefix}reverse
-│⭔ ${prefix}robot
-│⭔ ${prefix}slow
-│⭔ ${prefix}tupai
-│
-└───────⭓
-
-┌──⭓ *Owner Menu*
-│
-│⭔ ${prefix}chat [option]
-│⭔ ${prefix}join [link]
-│⭔ ${prefix}leave
-│⭔ ${prefix}block @user
-│⭔ ${prefix}unblock @user
-│⭔ ${prefix}bcgroup [text]
-│⭔ ${prefix}bcall [text]
-│⭔ ${prefix}setppbot [image]
-│⭔ ${prefix}setexif
-│
-└───────⭓`
+*OWNER MENU*
+≻ ${prefix}chat [option]
+≻ ${prefix}join [link]
+≻ ${prefix}leave
+≻ ${prefix}block @user
+≻ ${prefix}unblock @user
+≻ ${prefix}bcgroup [text]
+≻ ${prefix}bcall [text]
+≻ ${prefix}setppbot [image]
+≻ ${prefix}setexif`
                 let btn = [{
                                 urlButton: {
-                                    displayText: 'Source Code',
-                                    url: 'https://github.com/DikaArdnt/Hisoka-Morou'
+                                    displayText: 'Group Nino',
+                                    url: 'https://chat.whatsapp.com/CgDjbfno5UZB4pcygqmdxB'
                                 }
                             }, {
                                 callButton: {
                                     displayText: 'Number Phone Owner',
-                                    phoneNumber: '+62 882-9202-4190'
+                                    phoneNumber: '+62 858-6187-0154'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Status Bot',
-                                    id: 'ping'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Contact Owner',
+                                    displayText: 'Owner',
                                     id: 'owner'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Donasi',
+                                    id: 'donasi'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Script',
-                                    id: 'sc'
+                                    displayText: 'Sewabot',
+                                    id: 'sewa'
                                 }
                             }]
                         hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.thumb, btn)
