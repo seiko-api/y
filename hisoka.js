@@ -1539,12 +1539,24 @@ break
                 hisoka.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `≻ Title : ${media.title}\n≻ File Size : ${media.filesizeF}\n≻ Url : ${urls[text - 1]}\n≻ Ext : MP3\n≻ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-            case 'pinterest': {
+            case 'pinterest': case 'pinte': {
                 m.reply(mess.wait)
 		let { pinterest } = require('./lib/scraper')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-               hisoka.sendMessage(m.chat, { image: { url: result }, caption: `Hasil pencarian dari ${text}\n\nPhoto Source : ${result}` }, { quoted: m })
+                mekq = await getBuffer(result)
+            let btn = [{
+                                urlButton: {
+                                    displayText: 'Photo Source',
+                                    url: `${result[0]}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Next Photo',
+                                    id: `pinte ${text}`
+                                }
+                            }]
+                        hisoka.send5ButImg(m.chat, `Hasil pencarian dari ${text}`, `Pencet tombol dibawah untuk foto selanjutnya`, mekq, btn)
                      }
             break
         case 'waifu': case 'neko': case 'husbu': case 'shinobu': case 'megumin': case 'loli': {
@@ -1574,7 +1586,7 @@ break
                 hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'wallpaper': {
+            case 'wallpaper': case 'wp': {
                 if (!text) throw 'Masukkan Query Title'
 		let { wallpaper } = require('./lib/scraper')
                 anu = await wallpaper(text)
@@ -1588,10 +1600,10 @@ break
                             }, {
                                 quickReplyButton: {
                                     displayText: 'Next Photo',
-                                    id: `wallpaper ${text}`
+                                    id: `wp ${text}`
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, `4`, hisoka.user.name, mekq, btn)
+                        hisoka.send5ButImg(m.chat, `Random Wallpaper ${text}`, `Pencet tombol dibawah untuk foto selanjutnya`, mekq, btn)
                      }
             break
             case 'wikimedia': {
