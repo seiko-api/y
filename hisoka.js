@@ -1548,7 +1548,7 @@ break
             let btn = [{
                                 urlButton: {
                                     displayText: 'Photo Source',
-                                    url: `${result[0]}`
+                                    url: `${result}`
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1572,19 +1572,21 @@ break
                 hisoka.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            case 'coffe': case 'kopi': {
-            let buttons = [
-                    {buttonId: `coffe`, buttonText: {displayText: 'Next Image'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: 'https://coffee.alexflipnote.dev/random' },
-                    caption: `☕ Random Coffe`,
-                    footer: hisoka.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
+            case 'coffe': case 'kop': {
+            mekq = await getBuffer(`https://coffee.alexflipnote.dev/random`)
+            let btn = [{
+                                urlButton: {
+                                    displayText: 'Photo Source',
+                                    url: `https://coffee.alexflipnote.dev/random`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Next Photo',
+                                    id: `kop ${text}`
+                                }
+                            }]
+                        hisoka.send5ButImg(m.chat, `Random Coffe`, `Pencet tombol dibawah untuk foto selanjutnya`, mekq, btn)
+                     }
             break
             case 'wallpaper': case 'wp': {
                 if (!text) throw 'Masukkan Query Title'
@@ -1606,39 +1608,44 @@ break
                         hisoka.send5ButImg(m.chat, `Random Wallpaper ${text}`, `Pencet tombol dibawah untuk foto selanjutnya`, mekq, btn)
                      }
             break
-            case 'wikimedia': {
+            case 'wikimedia': case 'wime': {
                 if (!text) throw 'Masukkan Query Title'
 		let { wikimedia } = require('./lib/scraper')
                 anu = await wikimedia(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-                let buttons = [
-                    {buttonId: `wikimedia ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: result.image },
-                    caption: `≻ Title : ${result.title}\n≻ Source : ${result.source}\n≻ Media Url : ${result.image}`,
-                    footer: hisoka.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
+                mekq = await getBuffer(result.image)
+            let btn = [{
+                                urlButton: {
+                                    displayText: 'Photo Source',
+                                    url: `${result.image}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Next Photo',
+                                    id: `wime ${text}`
+                                }
+                            }]
+                        hisoka.send5ButImg(m.chat, `Title : ${result.title}`, `Pencet tombol dibawah untuk foto selanjutnya`, mekq, btn)
+                     }
             break
             case 'quotesanime': case 'quoteanime': {
 		let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
-                let buttons = [
-                    {buttonId: `quotesanime`, buttonText: {displayText: 'Next'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`,
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 2
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
+                mekq = await getBuffer(`https://telegra.ph/file/b181fe290379e7dc0018a.jpg`)
+            let btn = [{
+                                urlButton: {
+                                    displayText: 'Website',
+                                    url: `https://nino-wife.github.io`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Next Quotes',
+                                    id: `qm`
+                                }
+                            }]
+                        hisoka.send5ButImg(m.chat, `_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`, `Pencet tombol dibawah untuk quotes selanjutnya`, mekq, btn)
+                     }
             break
 	        case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
                 let anu = await fetchJson(api('zenz', '/api/'+command, {}, 'apikey'))
