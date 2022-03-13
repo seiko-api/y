@@ -1995,23 +1995,24 @@ break
             }
             break
             case 'tt': case 'tiktoknowm': {
+                let { tt } = require('./lib/tiktokdl')
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                
-                let anu = await fetchJson(api('xcode', '/api/download/tiktok2', { url: text }, 'apikey'))
-                hisoka.sendMessage(m.chat, { video: { url: anu.result.nowatermark.url } }, { quoted: m })
+                let anu = await tt(text)
+                hisoka.sendMessage(m.chat, { video: { url: anu.result.nowatermark } }, { quoted: m })
             }
             break
             case 'tiktokwm': case 'tiktok': {
+                let { t } = require('./lib/tiktokdl')
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(api('xcode', '/api/download/tiktok2', { url: text }, 'apikey'))
+                let anu = await t(text)
                 let buttons = [
                     {buttonId: `tt ${text}`, buttonText: {displayText: 'Without Watermark'}, type: 1},
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: 'Audio'}, type: 1}
                 ]
                 let buttonMessage = {
-                    video: { url: anu.result.watermark.url },
+                    video: { url: anu.result.watermark },
                     caption: `Kamu bisa mengubahnya menjadi Vidio Tanpa Watermark atau Audio, pencet tombol dibawah untuk mengubahnya!`,
                     footer: 'create by @rafvnss.s',
                     buttons: buttons,
@@ -2021,9 +2022,10 @@ break
             }
             break
             case 'tiktokmp3': case 'tiktokaudio': {
+                let { u } = require('./lib/tiktokdl')
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(api('xcode', '/api/download/tiktok2', { url: text }, 'apikey'))
+                let anu = await u(text)
                 let buttons = [
                     {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: 'Without Watermark'}, type: 1},
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: 'With Watermark Watermark'}, type: 1}
@@ -2035,7 +2037,7 @@ break
                     headerType: 2
                 }
                 let msg = await hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.audio.url }, mimetype: 'audio/mpeg'}, { quoted: msg })
+                hisoka.sendMessage(m.chat, { audio: { url: anu.result.audio }, mimetype: 'audio/mpeg'}, { quoted: msg })
             }
             break
 	        case 'instagram': case 'ig': case 'igdl': {
