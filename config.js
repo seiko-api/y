@@ -10,12 +10,13 @@ const chalk = require('chalk')
 // Website Api
 global.APIs = {
 	zenz: 'https://zenzapi.xyz',
-        xcode: 'https://api-xcoders.xyz',
+	xcode: 'https://api-xcoders.xyz',
 }
 
 // Apikey Website Api
 global.APIKeys = {
 	'https://zenzapi.xyz': '4f7e4880e80f',
+	'https://api-xcoders.xyz': 'RdcUJgRE',
 }
 
 // Other
