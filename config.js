@@ -26,7 +26,7 @@ global.sessionName = 'hisoka'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
-    success: '✓ Success',
+    success: 'Success',
     admin: 'Fitur Khusus Admin Group!',
     botAdmin: 'Bot Harus Menjadi Admin Terlebih Dahulu!',
     owner: 'Fitur Khusus Owner Bot',
@@ -40,7 +40,7 @@ global.limitawal = {
     premium: "Infinity",
     free: 1
 }
-global.thumb = fs.readFileSync('./lib/hisoka.jpg')
+global.thumb = fs.readFileSync('./lib/nino.png')
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
