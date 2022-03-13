@@ -1579,18 +1579,19 @@ break
 		let { wallpaper } = require('./lib/scraper')
                 anu = await wallpaper(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-		let buttons = [
-                    {buttonId: `wallpaper ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: result.image[0] },
-                    caption: `≻ Title : ${result.title}\n≻ Category : ${result.type}\n≻ Detail : ${result.source}\n≻ Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
-                    footer: hisoka.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
+            let btn = [{
+                                urlButton: {
+                                    displayText: 'Photo Source',
+                                    url: `${result.image[0]}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Next Photo',
+                                    id: `wallpaper ${text}`
+                                }
+                            }]
+                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, result.image[0], btn)
+                     }
             break
             case 'wikimedia': {
                 if (!text) throw 'Masukkan Query Title'
