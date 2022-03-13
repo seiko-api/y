@@ -1628,7 +1628,7 @@ break
                         hisoka.send5ButImg(m.chat, `Title : ${result.title}`, `Pencet tombol dibawah untuk foto selanjutnya`, mekq, btn)
                      }
             break
-            case 'quotesanime': case 'quoteanime': {
+            case 'quotesanime': case 'qm': {
 		let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
@@ -1654,7 +1654,7 @@ break
                 ]
                 let buttonMessage = {
                     text: anu.result.message,
-                    footer: 'Press The Button Below',
+                    footer: 'create by @rafvnss.s',
                     buttons: buttons,
                     headerType: 2
                 }
@@ -1998,22 +1998,22 @@ break
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
                 
-                let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
-                hisoka.sendMessage(m.chat, { video: { url: anu.result.nowatermark } }, { quoted: m })
+                let anu = await fetchJson(api('xcode', '/api/download/tiktok2', { url: text }, 'apikey'))
+                hisoka.sendMessage(m.chat, { video: { url: anu.result.nowatermark.url } }, { quoted: m })
             }
             break
             case 'tiktokwm': case 'tiktok': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
+                let anu = await fetchJson(api('xcode', '/api/download/tiktok2', { url: text }, 'apikey'))
                 let buttons = [
                     {buttonId: `tt ${text}`, buttonText: {displayText: 'Without Watermark'}, type: 1},
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: 'Audio'}, type: 1}
                 ]
                 let buttonMessage = {
-                    video: { url: anu.result.watermark },
+                    video: { url: anu.result.watermark.url },
                     caption: `Kamu bisa mengubahnya menjadi Vidio Tanpa Watermark atau Audio, pencet tombol dibawah untuk mengubahnya!`,
-                    footer: 'Press The Button Below',
+                    footer: 'create by @rafvnss.s',
                     buttons: buttons,
                     headerType: 5
                 }
@@ -2023,19 +2023,19 @@ break
             case 'tiktokmp3': case 'tiktokaudio': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
+                let anu = await fetchJson(api('xcode', '/api/download/tiktok2', { url: text }, 'apikey'))
                 let buttons = [
                     {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: 'Without Watermark'}, type: 1},
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: 'With Watermark Watermark'}, type: 1}
                 ]
                 let buttonMessage = {
                     text: `Download From ${text}`,
-                    footer: 'Press The Button Below',
+                    footer: 'create by @rafvnss.s',
                     buttons: buttons,
                     headerType: 2
                 }
                 let msg = await hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.audio }, mimetype: 'audio/mpeg'}, { quoted: msg })
+                hisoka.sendMessage(m.chat, { audio: { url: anu.result.audio.url }, mimetype: 'audio/mpeg'}, { quoted: msg })
             }
             break
 	        case 'instagram': case 'ig': case 'igdl': {
@@ -2085,7 +2085,7 @@ break
                 let buttonMessage = {
                     video: { url: anu.result.HD || anu.result.SD },
                     caption: util.format(anu.result),
-                    footer: 'Press The Button Below',
+                    footer: 'create by @rafvnss.s',
                     buttons: buttons,
                     headerType: 5
                 }
@@ -2102,7 +2102,7 @@ break
                 let buttonMessage = {
 		    image: { url: anu.result.thumb },
                     caption: util.format(anu.result),
-                    footer: 'Press The Button Below',
+                    footer: 'create by @rafvnss.s',
                     buttons: buttons,
                     headerType: 4
                 }
